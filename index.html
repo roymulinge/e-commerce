@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Perry's Collection — Home</title>
+<link rel="stylesheet" href="styles.css">
+  <style>
+  
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR / HEADER -->
+  <header class="topbar">
+    <div class="container">
+      <div class="logo" >
+        <span class="mark">P</span>
+        <span>Perry's Collection</span>
+      </div>
+
+      <div class="deliver">
+        <span>Deliver to</span>
+        <strong>Kenya</strong>
+      </div>
+
+      <div class="search-wrap">
+        
+          <label class="sr-only" for="search">Search products</label>
+          <input id="search" class="search-input" type="search" placeholder="Search products, brands and categories" />
+          <button class="search-btn" aria-label="Search">Search</button>
+        
+      </div>
+
+      <button class="nav-toggle" >☰</button>
+
+      <div class="account">
+        <span>Hello, Sign in</span>
+        <strong>Account &amp; Lists</strong>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav class="mainnav">
+    <div class="container">
+      <ul class="nav-links" id="navLinks">
+        <li>All</li>
+        <li>Today's Deals</li>
+        <li>Customer Service</li>
+        <li>Registry</li>
+        <li>Gift Cards</li>
+        <li>Sell</li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h1 id="heroTitle">Simple, honest shopping — curated by Perry</h1>
+        <p>Handpicked selections for everyday life. Replace <code>hero.jpg</code> with your own banner in the project folder.</p>
+      </div>
+    </section>
+
+    <!-- DEALS -->
+    <section class="deals">
+      <div class="deal-card">🔥 Top Deals</div>
+      <div class="deal-card">🆕 New Arrivals</div>
+      <div class="deal-card">⭐ Best Rated</div>
+      <div class="deal-card">🎁 Gift Ideas</div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="categories" >
+      <h2 id="catTitle">Shop by category</h2>
+      <div class="category-grid" >
+        <div class="category">📱 Phones</div>
+        <div class="category">💻 Laptops</div>
+        <div class="category">🏠 Home</div>
+        <div class="category">👕 Fashion</div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products">
+      <h2 id="prodTitle" class="sr-only">Featured products</h2>
+
+      <article class="product" >
+        <img src="images/product1.jpg" alt="Black wireless headphones" >
+        <h3 id="p1">Wireless Headphones</h3>
+        <div class="desc">Comfort fit — long battery life.</div>
+        <div class="price">KSh 4,200</div>
+      </article>
+
+      <article class="product" aria-labelledby="p2">
+        <img src="images/product2.jpg" alt="Modern ceramic mug set">
+        <h3 id="p2">Ceramic Mug Set</h3>
+        <div class="desc">Microwave & dishwasher safe.</div>
+        <div class="price">KSh 1,150</div>
+      </article>
+
+      <article class="product" aria-labelledby="p3">
+        <img src="images/product3.jpg" alt="Small portable blender">
+        <h3 id="p3">Portable Blender</h3>
+        <div class="desc">Blend on the go.</div>
+        <div class="price">KSh 2,800</div>
+      </article>
+
+      <article class="product" aria-labelledby="p4">
+        <img src="images/product4.jpg" alt="Casual cotton t-shirt">
+        <h3 id="p4">Cotton Tee</h3>
+        <div class="desc">Soft, breathable, everyday wear.</div>
+        <div class="price">KSh 800</div>
+      </article>
+    </section>
+
+    <!-- SIGNUP CTA -->
+    <section style="margin:18px 0;">
+      <div class="signup" >
+        <div>
+          <strong>Get the latest deals</strong>
+          <div style="color:#555;font-size:13px;">Sign up for offers and new arrivals</div>
+        </div>
+
+        <div style="display:flex;
+        gap:8px;
+        align-items:center;
+        ">
+          <label for="email" class="sr-only">Email address</label>
+          <input id="email" type="email" placeholder="you@example.com" />
+          <button>Subscribe</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="sitefoot" >
+    <div class="container">
+      <div>Back to top</div>
+      <div>© <span id="year"></span> Perry's Collection — All rights reserved</div>
+    </div>
+  </footer>
+
+  
+</body>
+</html>
