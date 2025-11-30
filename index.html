@@ -4,45 +4,31 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Perry's Collection — Home</title>
-<link rel="stylesheet" href="styles.css">
-
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    
+  </style>
 </head>
-<body>
+<body class="home-page">
 
-  <!-- TOPBAR / HEADER -->
   <header class="topbar">
     <div class="container">
-      <div class="logo" >
-        
-        <span>Perry's Collection</span>
-      </div>
-
-      <div class="deliver">
-        <span>Deliver to</span>
-        <strong>Kenya</strong>
-      </div>
-
+      <div class="logo"><span>Perry's Collection</span></div>
+      <div class="deliver"><span>Deliver to</span><strong>Kenya</strong></div>
       <div class="search-wrap">
-        
-          <label class="sr-only" for="search">Search products</label>
-          <input id="search" class="search-input" type="search" placeholder="Search products, brands and categories" />
-          <button class="search-btn" aria-label="Search">Search</button>
-        
+        <input id="search" class="search-input" type="search" placeholder="Search products, brands and categories">
+        <button class="search-btn">Search</button>
       </div>
-
-      
-
-      <div class="account">
-        <span>Hello, Sign in</span>
-        <strong>Account &amp; Lists</strong>
+      <div class="account" id="accountSection" style="cursor:pointer;">
+        <span id="accTitle">Account</span>
+        <strong id="accAction">Login | Sign Up</strong>
       </div>
     </div>
   </header>
 
-  <!-- NAV -->
   <nav class="mainnav">
     <div class="container">
-      <ul class="nav-links" id="navLinks">
+      <ul class="nav-links">
         <li>All</li>
         <li>Today's Deals</li>
         <li>Customer Service</li>
@@ -53,90 +39,28 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <main class="container">
     <section class="hero">
       <div class="hero-card">
-        <h1 id="heroTitle">Simple, honest shopping — curated by Perry</h1>
-        <p>Handpicked selections for everyday life. Replace <code>hero.jpg</code> with your own banner in the project folder.</p>
+        <h1>Simple, honest shopping — curated by Perry</h1>
+        <p>Handpicked selections for everyday life.</p>
       </div>
     </section>
 
-    <!-- DEALS -->
-    <section class="deals">
-      <div class="deal-card">🔥 Top Deals</div>
-      <div class="deal-card">🆕 New Arrivals</div>
-      <div class="deal-card">⭐ Best Rated</div>
-      <div class="deal-card">🎁 Gift Ideas</div>
-    </section>
-
-    <!-- CATEGORIES -->
-    <section class="categories" >
-      <h2 id="catTitle">Shop by category</h2>
-      <div class="category-grid" >
-        <div class="category">📱 Phones</div>
-        <div class="category">💻 Laptops</div>
-        <div class="category">🏠 Home</div>
-        <div class="category">👕 Fashion</div>
+    <section class="categories">
+      <h2>Shop by category</h2>
+      <div class="category-grid">
+        <button class="category-filter" data-category="all">All</button>
+        <button class="category-filter" data-category="electronics">Electronics</button>
+        <button class="category-filter" data-category="fashion">Fashion</button>
+        <button class="category-filter" data-category="home">Home</button>
       </div>
     </section>
 
-    <!-- PRODUCTS -->
-    <section class="products">
-      <h2 id="prodTitle" class="sr-only">Featured products</h2>
-
-      <article class="product" >
-        <img src="images/product1.jpg" alt="Black wireless headphones" >
-        <h3 id="p1">Wireless Headphones</h3>
-        <div class="desc">Comfort fit — long battery life.</div>
-        <div class="price">KSh 4,200</div>
-      </article>
-
-      <article class="product" aria-labelledby="p2">
-        <img src="images/product2.jpg" alt="Modern ceramic mug set">
-        <h3 id="p2">Ceramic Mug Set</h3>
-        <div class="desc">Microwave & dishwasher safe.</div>
-        <div class="price">KSh 1,150</div>
-      </article>
-
-      <article class="product" aria-labelledby="p3">
-        <img src="images/product3.jpg" alt="Small portable blender">
-        <h3 id="p3">Portable Blender</h3>
-        <div class="desc">Blend on the go.</div>
-        <div class="price">KSh 2,800</div>
-      </article>
-
-      <article class="product" aria-labelledby="p4">
-        <img src="images/product4.jpg" alt="Casual cotton t-shirt">
-        <h3 id="p4">Cotton Tee</h3>
-        <div class="desc">Soft, breathable, everyday wear.</div>
-        <div class="price">KSh 800</div>
-      </article>
-    </section>
-
-    <!-- SIGNUP CTA -->
-    <section style="margin:18px 0;">
-      <div class="signup" >
-        <div>
-          <strong>Get the latest deals</strong>
-          <div style="color:#555;font-size:13px;">Sign up for offers and new arrivals</div>
-        </div>
-
-        <div style="display:flex;
-        gap:8px;
-        align-items:center;
-        ">
-          <label for="email" class="sr-only">Email address</label>
-          <input id="email" type="email" placeholder="you@example.com" />
-          <button>Subscribe</button>
-        </div>
-      </div>
-    </section>
-
+    <section id="products" class="products"></section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="sitefoot" >
+  <footer class="sitefoot">
     <div class="container">
       <div>Back to top</div>
       <div>© <span id="year"></span> Perry's Collection — All rights reserved</div>
@@ -144,5 +68,107 @@
   </footer>
 
   
+  <div class="cart" id="cartSection" style="cursor:pointer; position:relative;">
+  
+  
+
+  
+  <span id="cartBadge"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+    <path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/>
+  </svg>0</span>
+</div>
+
+
+  
+  <script src="practice.js"></script>
+  <script>
+    //  ACCOUNT 
+    const accountBox = document.getElementById("accountSection");
+    const title = document.getElementById("accTitle");
+    const action = document.getElementById("accAction");
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+
+    if (user) {
+      title.innerText = "Account";
+      action.innerText = `Welcome, ${user.name}`;
+      accountBox.onclick = () => alert("Your account page coming soon!");
+    } else {
+      accountBox.onclick = () => {
+        const choice = confirm("Press OK to Login.\nPress Cancel to Sign Up.");
+        if (choice) window.location.href = "login.html";
+        else window.location.href = "signup.html";
+      };
+    }
+
+    document.getElementById("year").innerText = new Date().getFullYear();
+  </script>
+
+  <script>
+    //  PRODUCTS JS 
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById("products");
+      const searchInput = document.getElementById("search");
+      const categoryButtons = document.querySelectorAll(".category-filter");
+
+      let productsData = [];
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      const cartBadge = document.getElementById("cartBadge");
+      function updateCartBadge() { cartBadge.innerText = cart.length; }
+      updateCartBadge();
+
+      fetch("https://fakestoreapi.com/products")
+        .then(res => res.json())
+        .then(products => {
+          productsData = products;
+          displayProducts(products);
+        })
+        .catch(err => console.log("Error loading products:", err));
+
+      function displayProducts(list) {
+        container.innerHTML = "";
+        list.forEach(product => {
+          const card = document.createElement("div");
+          card.classList.add("product");
+          card.innerHTML = `
+            <img src="${product.image}" alt="${product.title}">
+            <h3>${product.title}</h3>
+            <p>$${product.price}</p>
+            <button class="addCartBtn">Add to Cart</button>
+          `;
+          container.appendChild(card);
+
+          card.querySelector(".addCartBtn").addEventListener("click", () => {
+            cart.push(product);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCartBadge();
+            alert(`${product.title} added to cart!`);
+          });
+        });
+      }
+
+      searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase();
+        const filtered = productsData.filter(p => p.title.toLowerCase().includes(query));
+        displayProducts(filtered);
+      });
+
+      categoryButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const cat = btn.dataset.category;
+          if (cat === "all") displayProducts(productsData);
+          else {
+            const filtered = productsData.filter(p => {
+              if (cat === "electronics") return p.category.includes("electronics");
+              if (cat === "fashion") return p.category.includes("clothing") || p.category.includes("jewelery");
+              if (cat === "home") return p.category.includes("home");
+              return false;
+            });
+            displayProducts(filtered);
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

@@ -1,79 +1,45 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
-  
   let users = JSON.parse(localStorage.getItem("users")) || [];
-
-  
   const $ = id => document.getElementById(id);
 
-  // --- SIGNUP
-  const signupBtn = $("signupBtn");
-  if (signupBtn) {
-    signupBtn.addEventListener("click", () => {
+  /* -------- SIGNUP -------- */
+  if ($("signupBtn")) {
+    $("signupBtn").addEventListener("click", () => {
       const name = $("signupName").value.trim();
       const email = $("signupEmail").value.trim();
       const password = $("signupPassword").value.trim();
 
-      if (name === "" || email === "" || password === "") {
+      if (!name || !email || !password) {
         $("signupOutput").innerText = "All fields required";
         return;
       }
 
-      const exists = users.find(user => user.email === email);
-      if (exists) {
+      if (users.find(u => u.email === email)) {
         $("signupOutput").innerText = "Email already registered";
         return;
       }
 
-      const newUser = { name, email, password };
-      users.push(newUser);
+      users.push({ name, email, password });
       localStorage.setItem("users", JSON.stringify(users));
       $("signupOutput").innerText = "Account created successfully!";
+      setTimeout(() => window.location.href = "login.html", 1000);
     });
   }
 
-  // --- CONTACT 
-  const sendBtn = $("sendBtn");
-  if (sendBtn) {
-    sendBtn.addEventListener("click", () => {
-      const name = $("name").value.trim();
-      const email = $("email").value.trim();
-      const message = $("message").value.trim();
-
-      if (name === "" || email === "" || message === "") {
-        $("output").innerText = "All fields are required";
-        return;
-      }
-
-      const contact = { name, email, message };
-      localStorage.setItem("contactData", JSON.stringify(contact));
-
-      const saved = JSON.parse(localStorage.getItem("contactData"));
-      $("output").innerText = `
-Name: ${saved.name}
-Email: ${saved.email}
-Message: ${saved.message}
-      `;
-    });
-  }
-
-  // --- LOGIN
-  const loginBtn = $("loginBtn");
-  if (loginBtn) {
-    loginBtn.addEventListener("click", () => {
+  /* -------- LOGIN -------- */
+  if ($("loginBtn")) {
+    $("loginBtn").addEventListener("click", () => {
       const email = $("loginEmail").value.trim();
       const password = $("loginPassword").value.trim();
 
-      if (email === "" || password === "") {
+      if (!email || !password) {
         $("loginOutput").innerText = "All fields required";
         return;
       }
 
-      
       users = JSON.parse(localStorage.getItem("users")) || [];
-
       const user = users.find(u => u.email === email);
+
       if (!user) {
         $("loginOutput").innerText = "Email not found";
         return;
@@ -84,11 +50,32 @@ Message: ${saved.message}
         return;
       }
 
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("currentUser", JSON.stringify(user));
       $("loginOutput").innerText = "Login successful!";
-      //  save logged in user
-      localStorage.setItem("loggedInUser", JSON.stringify({ email: user.email, name: user.name }));
+      setTimeout(() => window.location.href = "index.html", 800);
     });
   }
 
-  
+  /* -------- ACCOUNT HEADER -------- */
+  const accountBox = document.getElementById("accountSection");
+  if (accountBox) {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    const title = document.getElementById("accTitle");
+    const action = document.getElementById("accAction");
+
+    if (user) {
+      title.innerText = "Account";
+      action.innerText = `Hello, ${user.name}`;
+      accountBox.onclick = () => alert("Your account page coming soon!");
+    } else {
+      title.innerText = "Account";
+      action.innerText = "Login | Sign Up";
+      accountBox.onclick = () => {
+        const choice = confirm("Press OK to Login.\nPress Cancel to Sign Up.");
+        if (choice) window.location.href = "login.html";
+        else window.location.href = "signup.html";
+      };
+    }
+  }
 });
